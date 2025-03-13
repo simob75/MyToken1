@@ -1,0 +1,484 @@
+/* General styling */
+/* General styling */
+body {
+  font-family: 'Arial', sans-serif;
+  background: url("../public/background.jpg") no-repeat center center fixed; 
+  background-size: cover;
+  text-align: center;
+  padding: 20px;
+}
+
+
+/* Main container */
+.App {
+  max-width: 500px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.95); /* Slightly stronger white */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2); /* Soft shadow */
+}
+
+
+/* Headings */
+h1 {
+  color: #333;
+  font-size: 26px;
+}
+
+/* Address display */
+p {
+  font-size: 14px;
+  color: #555;
+}
+
+/* Balance */
+p.balance {
+  font-weight: bold;
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+/* Buttons */
+button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+  margin: 10px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Input fields */
+input {
+  padding: 10px;
+  margin: 5px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  width: 80%;
+  font-size: 16px;
+}
+
+/* Form container */
+.transfer-container, .mint-container {
+  margin-top: 20px;
+  padding: 15px;
+  border-radius: 8px;
+  background: #f9f9f9;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* 🖥️ Responsive Design for PC/Laptops */
+@media (min-width: 1024px) {
+  .App {
+    max-width: 900px;
+    padding: 20px; /* Reduce padding to save space */
+  }
+
+  /* Reduce space between grid sections */
+  .content-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two columns */
+    gap: 15px; /* Reduce gap between sections */
+    align-items: stretch;
+  }
+
+  /* Reduce height & padding of containers */
+  .transfer-container,
+  .mint-container,
+  .faucet-container,
+  .admin-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 15px; /* Reduce padding */
+    height: auto; /* Prevent unnecessary height expansion */
+    min-height: 200px; /* Set a minimum height */
+    text-align: center;
+  }
+
+  /* Reduce input field height */
+  .transfer-container input,
+  .mint-container input,
+  .admin-container input {
+    width: 80%;
+    margin-bottom: 5px; /* Reduce margin to save space */
+    padding: 8px; /* Reduce input padding */
+  }
+
+  /* Reduce button size */
+  .transfer-container button,
+  .mint-container button,
+  .admin-container button {
+    width: auto;
+    padding: 6px 12px; /* Reduce button padding */
+    font-size: 14px; /* Slightly smaller font */
+  }
+
+  /* Reduce margin below balance */
+  .balance {
+    margin-bottom: 10px; /* Reduce space below balance */
+  }
+
+  /* Adjust Faucet & Admin sections */
+  .faucet-container {
+    padding: 10px;
+  }
+
+  .admin-container {
+    padding: 10px;
+  }
+}
+
+/* Reduce space between Transfer/Mint and Faucet/Admin sections */
+.faucet-container,
+.admin-container {
+  margin-top: -10px; /* Adjust to bring them closer */
+}
+
+/* Ensure buttons in Faucet & Admin sections are properly aligned */
+.faucet-container button,
+.admin-container button {
+  display: block;
+  margin: 10px auto 0 auto; /* Centers the button */
+}
+
+/* Reduce extra space between Faucet & Admin sections */
+.faucet-container,
+.admin-container {
+  margin-top: -15px; /* Slightly decrease space */
+}
+
+/* 🔄 Loading Spinner */
+.spinner {
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-left-color: #007bff;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  display: inline-block;
+  margin-left: 10px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Transaction History Styling */
+.history-container {
+  background: #f9f9f9; /* Light gray background */
+  border-radius: 10px;
+  padding: 15px;
+  max-width: 500px;
+  margin: auto;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Scrollable transaction list */
+.history-list {
+  max-height: 200px;  /* Set max height for scrolling */
+  overflow-y: auto;   /* Enable vertical scroll */
+  padding-right: 10px;
+}
+
+/* Individual transaction styling */
+.history-item {
+  background: #fff;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  border-left: 4px solid #4caf50; /* Green accent */
+  box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Address styling */
+.address {
+  font-family: monospace;
+  word-break: break-all; /* Prevent overflow */
+  color: #333;
+}
+
+.admin-toggle-btn {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.admin-toggle-btn:hover {
+  background: #0056b3;
+}
+
+.admin-container {
+  background: #f8f9fa;
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+/* 🌙 Dark Mode Styles */
+.dark-mode {
+  background-color: #121212;
+  color: #e0e0e0;  /* Lighter text for better readability */
+}
+
+/* 🟢 Fix Wallet Address & Balance Readability */
+.dark-mode p {
+  color: #ddd; /* Light gray for better readability */
+}
+
+.dark-mode p.balance {
+  font-weight: bold;
+  color: #ffffff; /* Pure white for strong contrast */
+}
+
+.dark-mode h1 {
+  color: #ffffff !important; /* Ensure full white */
+  font-size: 28px; /* Slightly bigger */
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+/* 🟢 Fix Titles: "🚀 Transfer Tokens", "🔥 Mint Tokens (Owner Only)" */
+.dark-mode h2 {
+  color: #ffffff; /* Brighter white */
+  font-size: 18px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* 🟢 Add Frame/Border to Faucet & Admin */
+.dark-mode .faucet-container,
+.dark-mode .admin-container {
+  border: 2px solid #444; /* Subtle border */
+  padding: 15px;
+  border-radius: 8px;
+  background: rgba(40, 40, 40, 0.95); /* Slightly lighter background */
+}
+
+/* 🟢 Improve "Claim 50 Free Tokens" Readability */
+.dark-mode .faucet-container p {
+  color: #ffffff; /* Full white for contrast */
+  font-size: 14px;
+}
+
+/* 🟢 Fix Input Fields in Dark Mode */
+.dark-mode input, 
+.dark-mode button, 
+.dark-mode .box {
+  background-color: #1e1e1e; /* Slightly lighter than background */
+  color: #ffffff;  /* White text */
+  border: 1px solid #444; /* Subtle border */
+}
+
+.dark-mode input::placeholder {
+  color: #bbb; /* Lighter placeholder color */
+}
+
+.dark-mode button:hover {
+  background-color: #666;
+}
+
+/* 🟢 Improve Disabled Buttons */
+.dark-mode button:disabled {
+  background-color: #555;
+  color: #aaa;
+  opacity: 0.6;
+}
+
+/* 🎯 Make Sections Uniform in Size */
+.transfer-container,
+.mint-container {
+  min-height: 230px; /* Same height for all */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* 🎯 Make Sections Uniform in Size */
+.faucet-container,
+.admin-container {
+  min-height: 200px; /* Same height for all */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* 📏 Reduce unnecessary spacing */
+.dark-mode .faucet-container,
+.dark-mode .admin-container {
+  padding: 12px; /* Slightly reduce padding */
+}
+
+/* 🔲 Fix "🚀 Transfer Tokens" & "🔥 Mint Tokens" Headers */
+.dark-mode .transfer-container h2,
+.dark-mode .mint-container h2 {
+  color: #222;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 5px;
+  border-radius: 5px;
+}
+
+/* 🔲 Ensure Grid Layout is Uniform */
+.content-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  align-items: stretch;
+}
+
+/* 🔲 Fix Faucet Positioning */
+.faucet-container {
+  margin-top: 10px;
+}
+
+.history-container {
+  max-height: 250px; /* Adjust height */
+  overflow-y: auto; /* Enable scrolling */
+  padding: 10px;
+  border-radius: 8px;
+}
+
+/* 🔲 Dark Mode Toggle */
+.dark-mode-toggle {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  background-color: #007bff;
+  color: white;
+}
+
+.dark-mode-toggle:hover {
+  background-color: #0056b3;
+}
+
+/* 🌙 Improve Wallet Address & Balance Readability */
+.dark-mode p {
+  color: #e0e0e0; /* Light gray, but not pure white */
+}
+
+/* ✅ Make balance text more prominent */
+.dark-mode p.balance {
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.dark-mode .history-container {
+  background: #1e1e1e;
+  color: #f5f5f5;
+  border: 1px solid #444;
+}
+
+/* ✅ Fix text color inside transaction history */
+.dark-mode .history-container li {
+  background: #333; /* Slightly lighter for contrast */
+  color: #fff; /* White text for better visibility */
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 5px;
+}
+
+/* ✅ Ensure labels like 'ETH Spent' and 'Tokens Received' are visible */
+.dark-mode .history-container strong {
+  color: #ffcc00; /* Bright yellow for contrast */
+}
+
+/* Dark mode - Transaction Items */
+.dark-mode .transaction-item {
+  background: #2a2a2a; /* Darker box for separation */
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 8px;
+  border-left: 4px solid #ff9800; /* Highlight color */
+}
+
+.dark-mode .transaction-item strong {
+  color: #ffa726; /* Brighter orange */
+}
+
+/* Admin Section: Make minting and faucet settings side by side */
+.admin-container {
+  display: flex;
+  justify-content: space-between; /* Space between both sections */
+  align-items: center; /* Align items vertically */
+  gap: 20px; /* Adds space between sections */
+  margin-top: 20px;
+}
+
+/* Individual sections */
+.mint-container,
+.admin-container {
+  flex: 1; /* Make them equal width */
+  padding: 15px;
+  background: #f8f8f8; /* Light background for visibility */
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Dark mode adjustments */
+.dark-mode .mint-container,
+.dark-mode .admin-container {
+  background: #1e1e1e;
+  color: #ffffff;
+  box-shadow: 2px 2px 10px rgba(255, 255, 255, 0.1);
+}
+
+/* 🌙 Dark Mode: Match Transfer Tokens to Faucet */
+.dark-mode .transfer-container {
+  background: rgba(35, 35, 35, 0.95); /* Slightly darker */
+  border: 2px solid #555; /* More defined border */
+  box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.08); /* Softer shadow */
+}
+
+/* 🌙 Dark Mode: Ensure Text Visibility */
+.dark-mode .transfer-container h2 {
+  color: #ffffff; /* Make title bright white */
+  font-size: 18px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* 🌙 Dark Mode: Match Input Fields */
+.dark-mode .transfer-container input {
+  background-color: #222;  /* Darker input background */
+  color: #fff;  /* White text */
+  border: 1px solid #444; /* Dark border */
+  padding: 10px;
+  border-radius: 5px;
+}
+
+/* 🌙 Dark Mode: Match Buttons */
+.dark-mode .transfer-container button {
+  background-color: #007bff; /* Blue for contrast */
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* Slightly darken button hover effect */
+.dark-mode .transfer-container button:hover {
+  background-color: #004599; /* Slightly darker blue */
+}
