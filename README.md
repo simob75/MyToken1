@@ -33,7 +33,7 @@ If a user tries to claim tokens too soon, they will see this message.
 
 🛠️ Setup & Installation
 1️⃣ Clone the Repository
-git clone https://github.com/yourusername/mytoken-dapp.git
+git clone https://github.com/simob75/MyToken1
 cd mytoken-dapp
 2️⃣ Install Dependencies
 npm install
